@@ -61,11 +61,15 @@ otsu_result = apply_otsu(noisy_image)
 seed_points = [(30, 30)] if not use_local_image else [(70, 70)]  # adjust seed 
 region_result = region_growing(image, seed_points, threshold=20)
 
+cv2.imwrite("original_image.png", image)
+cv2.imwrite("noisy_image.png", noisy_image)
+cv2.imwrite("otsu_result.png", otsu_result)
+cv2.imwrite("region_grown.png", region_result)
 
 plt.figure(figsize=(12, 6))
 plt.subplot(2, 2, 1), plt.imshow(image, cmap='gray'), plt.title("Original")
-plt.subplot(2, 2, 1), plt.imshow(noisy_image, cmap='gray'), plt.title("With Gaussian Noise")
-plt.subplot(2, 2, 2), plt.imshow(otsu_result, cmap='gray'), plt.title("Otsu Threshold")
+plt.subplot(2, 2, 2), plt.imshow(noisy_image, cmap='gray'), plt.title("With Gaussian Noise")
+plt.subplot(2, 2, 3), plt.imshow(otsu_result, cmap='gray'), plt.title("Otsu Threshold")
 plt.subplot(2, 2, 4), plt.imshow(region_result, cmap='gray'), plt.title("Region Grown")
 plt.tight_layout()
 plt.show()
