@@ -57,15 +57,18 @@ cd Image-Segmentation-Tasks-Take-Home-2</pre>
 The image contains two clear objects a gray circle and a white square placed on a black 
 background. These represent two distinct pixel intensity levels (gray = 85, white = 170), 
 along with the background (black = 0)
+
 2.With Gaussian Noise:
 Gaussian noise was added to simulate a real-world scenario where the image is not perfectly 
 clean. As seen in the image, the objects now appear with random intensity variations, 
 especially around their boundaries. However, their general shapes are still visible.
+
 3.Otsu Threshold:
 Otsu’s algorithm automatically calculated the optimal threshold to separate the objects from 
 the background. In the output, the square is detected quite accurately, but the noisy circle 
 appears broken and patchy. This shows that Otsu’s method can be affected by noise, 
 especially on objects with lower intensity contrast (like the gray circle).
+
 4.Region Grown:
 Starting from a seed inside the circle, the region-growing algorithm successfully segmented 
 the entire circular object. It did this by checking neighboring pixels with similar intensity 
